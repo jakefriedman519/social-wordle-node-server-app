@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "name": "social-wordle-node-server-app",
+  "version": "1.0.0",
+  "description": "Node.js HTTP Web server for the Social Wordle application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jake Friedman, Russell Leung",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "prettier": "^3.5.3",
+    "social-wordle-node-server-app": "file:",
+    "uuid": "^11.1.0"
+  }
+}
