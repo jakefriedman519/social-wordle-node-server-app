@@ -12,8 +12,11 @@
   "author": "Jake Friedman, Russell Leung",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.13.1",
     "prettier": "^3.5.3",
     "social-wordle-node-server-app": "file:",
     "uuid": "^11.1.0"
