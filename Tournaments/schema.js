@@ -13,6 +13,8 @@ const tournamentSchema = new mongoose.Schema(
         lastActivity: { type: Date, default: Date.now },
       },
     ],
+    numberOfGuesses: { type: Number, default: 6 }, // number of guesses allowed in the tournament
+    tournamentName: { type: String, required: true }, // name of the tournament
     startDate: { type: Date, required: true, default: Date.now },
     endDate: { type: Date, required: true, default: Date.now },
   },
