@@ -7,5 +7,5 @@ export default function WordleExternalApiRoutes(app) {
     res.json(wordle);
   };
 
-  app.get("/api/wordle/:word", getWordleByDay);
+  app.get("/api/wordle-api/:day", getWordleByDay);
 }

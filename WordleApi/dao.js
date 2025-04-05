@@ -1,8 +1,7 @@
 import "dotenv/config";
-// TODO use env config for credentials/route of the exrernal api
 
 export const getWordleByDay = async (day) => {
-  const response = await fetch(`https://api.wordleapi.dev/api/v1/word/${day}`);
+  const response = await fetch(`https://www.nytimes.com/svc/wordle/v2/${day}.json`);
   if (!response.ok) {
     throw new Error("Failed to fetch wordle data");
   }
