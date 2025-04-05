@@ -3,34 +3,51 @@ import * as dao from "./dao.js";
 export default function WordleGuessesRoutes(app) {
   // TODO these are basic routes, we should add more functionality to the routes / change as needed
   const getWordleGuessById = async (req, res) => {
-    const wordle = await dao.findWordleById(req.params.wordleId);
-    res.json(wordle);
+    const wordleGuess = await dao.findWordleGuesses({ _id: req.params.wordleId });
+    res.json(wordleGuess);
   };
   const getWordleGuessesByUserId = async (req, res) => {
-    const wordles = await dao.findWordlesByUserId(req.params.userId);
-    res.json(wordles);
+    const wordleGuesses = await dao.findWordleGuesses({ user: req.params.userId });
+    res.json(wordleGuesses);
   };
   const getWordleGuessesByDate = async (req, res) => {
-    const wordle = await dao.findWordleByDate(req.params.date);
-    res.json(wordle);
+    const wordleGuess = await dao.findWordleGuesses({ createdDate: req.params.date });
+    res.json(wordleGuess);
   };
-  const getWordleGuessesByTournamentId = async (req, res) => {
-    const wordles = await dao.findWordlesByTournamentId(req.params.tournamentId);
-    res.json(wordles);
+  const getUserWordleGuessesByDate = async (req, res) => {
+    const currentUser = req.session["currentUser"];
+    if (!currentUser) {
+      return res.json([]);
+    }
+    const wordleGuess = await dao.findWordleGuesses({
+      userId: currentUser._id,
+      createdDate: new Date(req.params.date),
+    });
+    res.json(wordleGuess[0]);
   };
-  const createWordleGuess = async (req, res) => {
-    const wordle = await dao.createWordle(req.body);
-    res.json(wordle);
+  const createOrUpdateDailyWordleGuess = async (req, res) => {
+    const currentUser = req.session["currentUser"];
+    if (!currentUser) {
+      return res.json({});
+    }
+    const wordleGuess = await dao.createOrUpdateWordleGuess(req.body, currentUser._id);
+    res.json(wordleGuess);
   };
+  // const createOrUpdateCustomWordleGuess = async (req, res) => {
+  //   const currentUser = req.session["currentUser"];
+  //   const wordle = await dao.createOrUpdateWordleGuess(req.body, currentUser._id);
+  //   res.json(wordle);
+  // }
   const deleteWordleGuess = async (req, res) => {
     const status = await dao.deleteWordle(req.params.wordleId);
     res.json(status);
   };
 
-  app.get("/api/wordle/:wordleId", getWordleGuessById);
-  app.get("/api/wordle/user/:userId", getWordleGuessesByUserId);
-  app.get("/api/wordle/date/:date", getWordleGuessesByDate);
-  app.get("/api/wordle/tournament/:tournamentId", getWordleGuessesByTournamentId);
-  app.post("/api/wordle", createWordleGuess);
-  app.delete("/api/wordle/:wordleId", deleteWordleGuess);
+  app.get("/api/wordle-guesses/:wordleId", getWordleGuessById);
+  app.get("/api/wordle-guesses/user/:userId", getWordleGuessesByUserId);
+  app.get("/api/wordle-guesses/date/:date", getWordleGuessesByDate);
+  app.get("/api/wordle-guesses/user/date/:date", getUserWordleGuessesByDate);
+  app.patch("/api/wordle-guesses", createOrUpdateDailyWordleGuess);
+  // app.patch("/api/wordle-guesses/custom", createOrUpdateCustomWordleGuess); // TODO: implement custom wordle
+  app.delete("/api/wordle-guesses/:wordleId", deleteWordleGuess);
 }

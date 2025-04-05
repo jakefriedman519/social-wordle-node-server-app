@@ -10,6 +10,7 @@ const wordleSchema = new mongoose.Schema(
       enum: ["EASY", "MEDIIUM", "HARD"],
       default: "EASY",
     }, // difficulty level of the wordle
+    title: { type: String, required: true }, // title of the wordle
   },
   { collection: "wordles" }
 );
