@@ -8,6 +8,7 @@ import UserRoutes from "./Users/routes.js";
 import WordleRoutes from "./Wordles/routes.js";
 import WordleGuessesRoutes from "./WordleGuesses/routes.js";
 import TournamentRoutes from "./Tournaments/routes.js";
+import WordleExternalApiRoutes from "./WordleApi/routes.js";
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/social-wordle-app"
 mongoose.connect(CONNECTION_STRING);
@@ -39,6 +40,6 @@ UserRoutes(app);
 WordleRoutes(app); 
 TournamentRoutes(app);
 WordleGuessesRoutes(app);
-// WordleApiRoutes(app); // TODO use these routes to interface with external wordle api (get word of the day, get past words, etc.)
+WordleExternalApiRoutes(app); // TODO use these routes to interface with external wordle api (get word of the day, get past words, etc.)
 
 app.listen(process.env.PORT || 4000);

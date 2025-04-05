@@ -56,7 +56,7 @@ export default function UserRoutes(app) {
       req.session["currentUser"] = currentUser;
       res.json(currentUser);
     } else {
-      res.status(401).json({ message: "Unable to login. Try again later." });
+      res.status(401).json({ message: "Username or password is incorrect." });
     }
   };
   const signout = (req, res) => {
@@ -76,8 +76,8 @@ export default function UserRoutes(app) {
   app.get("/api/users/:userId", findUserById);
   app.put("/api/users/:userId", updateUser);
   app.delete("/api/users/:userId", deleteUser);
-  app.post("/api/users/signup", signup);
-  app.post("/api/users/signin", signin);
-  app.post("/api/users/signout", signout);
+  app.post("/api/users/sign-up", signup);
+  app.post("/api/users/sign-in", signin);
+  app.post("/api/users/sign-out", signout);
   app.post("/api/users/profile", profile);
 }
