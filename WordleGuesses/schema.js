@@ -6,7 +6,6 @@ const wordleGuesseSchema = new mongoose.Schema(
     wordleId: { type: String, required: true, ref: "WordleModel" }, // wordle id of the wordle being played
     guesses: { type: [String], required: true },
     completed: { type: Boolean, required: true }, // true if the wordle was completed within 6 guesses, false otherwise
-    completedTimeInSeconds: { type: Number, required: true },
     finishedDate: { type: Date, default: Date.now }, // date when the wordle was completed
     createdDate: { type: Date, default: Date.now }, // date when the wordle was created (can be used to track the wordle of the day and past wordles)
    },
