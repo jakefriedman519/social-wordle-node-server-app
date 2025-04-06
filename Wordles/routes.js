@@ -38,6 +38,10 @@ export default function WordleRoutes(app) {
     const wordle = await dao.createWordle({...req.body, userId: currentUser._id});
     res.json(wordle);
   };
+  const updateWordle = async (req, res) => {
+    const wordle = await dao.updateWordle(req.params.wordleId, req.body);
+    res.json(wordle);
+  };
   const deleteWordle = async (req, res) => {
     const status = await dao.deleteWordle(req.params.wordleId);
     res.json(status);
@@ -47,5 +51,6 @@ export default function WordleRoutes(app) {
   app.get("/api/wordles/user/:userId", getWordlesByUserId);
   app.get("/api/wordles", getAllWordles);
   app.post("/api/wordles", createWordle);
+  app.patch("/api/wordles/:wordleId", updateWordle);
   app.delete("/api/wordles/:wordleId", deleteWordle);
 }
