@@ -6,7 +6,7 @@ const wordleSchema = new mongoose.Schema(
     createdDate: { type: Date, default: Date.now },
     difficulty: {
       type: String,
-      enum: ["EASY", "MEDIIUM", "HARD"],
+      enum: ["EASY", "MEDIUM", "HARD"],
       default: "EASY",
     }, // difficulty level of the wordle
     title: { type: String, required: true }, // title of the wordle
