@@ -12,6 +12,14 @@ export async function createOrUpdateWordleGuess(wordle, userId) {
   );
 }
 
+export async function createOrUpdateCustomWordleGuess(wordle, userId) {
+  return model.findOneAndUpdate(
+    { userId, wordleId: wordle.wordleId },
+    wordle,
+    { upsert: true, new: true }
+  );
+}
+
 export async function deleteWordle(wordleId) {
   return model.deleteOne({ _id: wordleId });
 }

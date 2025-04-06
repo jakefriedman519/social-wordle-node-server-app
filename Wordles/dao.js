@@ -1,11 +1,7 @@
 import model from "./model.js";
 
-export async function findWordleById(wordleId) {
-  return model.findById(wordleId);
-}
-
-export async function findWordlesByUserId(userId) {
-  return model.find({ userId: userId });
+export async function findWordles(query) {
+  return model.find(query).populate("userId", "username");
 }
 
 export function createWordle(wordle) {

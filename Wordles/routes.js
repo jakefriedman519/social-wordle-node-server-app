@@ -3,15 +3,28 @@ import * as dao from "./dao.js";
 export default function WordleRoutes(app) {
   // TODO these are basic routes, we should add more functionality to the routes / change as needed
   const getWordleById = async (req, res) => {
-    const wordle = await dao.findWordleById(req.params.wordleId);
-    res.json(wordle);
+    const wordle = await dao.findWordles({ _id: req.params.wordleId });
+    res.json(wordle[0]);
   };
   const getWordlesByUserId = async (req, res) => {
-    const wordles = await dao.findWordlesByUserId(req.params.userId);
+    let userId = req.params.userId;
+    if (userId === "me") {
+      const currentUser = req.session["currentUser"];
+      if (!currentUser) {
+        return res.json([]);
+      }
+      userId = currentUser._id;
+    }
+    const wordles = await dao.findWordles({ userId });
+    res.json(wordles[0]);
+  };
+  const getAllWordles = async (req, res) => {
+    const wordles = await dao.findWordles({});
     res.json(wordles);
   };
   const createWordle = async (req, res) => {
-    const wordle = await dao.createWordle(req.body);
+    const currentUser = req.session["currentUser"];
+    const wordle = await dao.createWordle({...req.body, userId: currentUser._id});
     res.json(wordle);
   };
   const deleteWordle = async (req, res) => {
@@ -19,8 +32,9 @@ export default function WordleRoutes(app) {
     res.json(status);
   };
 
-  app.get("/api/wordle/:wordleId", getWordleById);
-  app.get("/api/wordle/user/:userId", getWordlesByUserId);
-  app.post("/api/wordle", createWordle);
-  app.delete("/api/wordle/:wordleId", deleteWordle);
+  app.get("/api/wordles/:wordleId", getWordleById);
+  app.get("/api/wordles/user/:userId", getWordlesByUserId);
+  app.get("/api/wordles", getAllWordles);
+  app.post("/api/wordles", createWordle);
+  app.delete("/api/wordles/:wordleId", deleteWordle);
 }

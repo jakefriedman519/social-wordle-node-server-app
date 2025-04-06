@@ -25,6 +25,14 @@ export default function WordleGuessesRoutes(app) {
     });
     res.json(wordleGuess[0]);
   };
+  const getUserWordleGuessesByWordleId = async (req, res) => {
+    const currentUser = req.session["currentUser"];
+    const wordleGuess = await dao.findWordleGuesses({
+      userId: currentUser._id,
+      wordleId: req.params.wordleId,
+    });
+    res.json(wordleGuess[0]);
+  }
   const createOrUpdateDailyWordleGuess = async (req, res) => {
     const currentUser = req.session["currentUser"];
     if (!currentUser) {
@@ -33,11 +41,11 @@ export default function WordleGuessesRoutes(app) {
     const wordleGuess = await dao.createOrUpdateWordleGuess(req.body, currentUser._id);
     res.json(wordleGuess);
   };
-  // const createOrUpdateCustomWordleGuess = async (req, res) => {
-  //   const currentUser = req.session["currentUser"];
-  //   const wordle = await dao.createOrUpdateWordleGuess(req.body, currentUser._id);
-  //   res.json(wordle);
-  // }
+  const createOrUpdateCustomWordleGuess = async (req, res) => {
+    const currentUser = req.session["currentUser"];
+    const wordle = await dao.createOrUpdateCustomWordleGuess(req.body, currentUser._id);
+    res.json(wordle);
+  }
   const deleteWordleGuess = async (req, res) => {
     const status = await dao.deleteWordle(req.params.wordleId);
     res.json(status);
@@ -47,7 +55,8 @@ export default function WordleGuessesRoutes(app) {
   app.get("/api/wordle-guesses/user/:userId", getWordleGuessesByUserId);
   app.get("/api/wordle-guesses/date/:date", getWordleGuessesByDate);
   app.get("/api/wordle-guesses/user/date/:date", getUserWordleGuessesByDate);
+  app.get("/api/wordle-guesses/user/wordleId/:wordleId", getUserWordleGuessesByWordleId);
   app.patch("/api/wordle-guesses", createOrUpdateDailyWordleGuess);
-  // app.patch("/api/wordle-guesses/custom", createOrUpdateCustomWordleGuess); // TODO: implement custom wordle
+  app.patch("/api/wordle-guesses/custom", createOrUpdateCustomWordleGuess);
   app.delete("/api/wordle-guesses/:wordleId", deleteWordleGuess);
 }
