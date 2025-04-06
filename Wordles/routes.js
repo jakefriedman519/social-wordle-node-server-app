@@ -19,7 +19,18 @@ export default function WordleRoutes(app) {
     res.json(wordles[0]);
   };
   const getAllWordles = async (req, res) => {
-    const wordles = await dao.findWordles({});
+    const query = req.query;
+    if (query.title) {
+      query.title = { $regex: query.title, $options: "i" };
+    }
+    if (query.createdDate) {
+      const date = new Date(query.createdDate);
+      date.setDate(date.getDate() + 1); // Move back one day
+      const startOfDay = new Date(date.setHours(0, 0, 0, 0));
+      const endOfDay = new Date(date.setHours(23, 59, 59, 999));
+      query.createdDate = { $gte: startOfDay, $lte: endOfDay };
+    }
+    const wordles = await dao.findWordles(query);
     res.json(wordles);
   };
   const createWordle = async (req, res) => {
