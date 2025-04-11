@@ -11,8 +11,12 @@ export default function WordleGuessesRoutes(app) {
     res.json(wordleGuesses);
   };
   const getWordleGuessesByDate = async (req, res) => {
-    const wordleGuess = await dao.findWordleGuesses({ createdDate: req.params.date });
-    res.json(wordleGuess);
+    const wordleGuesses = await dao.findWordleGuesses({ createdDate: req.params.date });
+    res.json(wordleGuesses.sort((a, b) => {
+      if (a.score === -1) return 1;
+      if (b.score === -1) return -1;
+      return a.score - b.score;
+    }));
   };
   const getUserWordleGuessesByDate = async (req, res) => {
     const currentUser = req.session["currentUser"];
