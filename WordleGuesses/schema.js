@@ -3,7 +3,7 @@ const wordleGuesseSchema = new mongoose.Schema(
   {
     _id: String,
     userId: { type: String, required: true, ref: "UserModel" }, // user id of the user playing the wordle
-    wordleId: { type: String, required: true, ref: "WordleModel" }, // wordle id of the wordle being played
+    wordleId: { type: String, required: false, ref: "WordleModel" }, // wordle id of the wordle being played
     guesses: { type: [String], required: true },
     completed: { type: Boolean, required: true }, // true if the wordle was completed within 6 guesses, false otherwise
     timeSpent: { type: Number, required: true }, // time spent on the wordle in seconds

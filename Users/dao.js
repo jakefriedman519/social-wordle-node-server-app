@@ -17,7 +17,7 @@ export const findUserByCredentials = (username, password) =>
   model.findOne({ username, password });
 
 export const updateUser = (userId, user) =>
-  model.updateOne({ _id: userId }, { $set: user });
+  model.findOneAndUpdate({ _id: userId }, { $set: user }, { new: true });
 
 export const deleteUser = (userId) => model.deleteOne({ _id: userId });
 
