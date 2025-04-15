@@ -9,7 +9,7 @@ export default function WordleGuessesRoutes(app) {
   };
   const getWordleGuessesByUserId = async (req, res) => {
     const wordleGuesses = await dao.findWordleGuesses({
-      user: req.params.userId,
+      userId: req.params.userId,
     });
     res.json(wordleGuesses);
   };
@@ -22,7 +22,7 @@ export default function WordleGuessesRoutes(app) {
         if (a.score === -1) return 1;
         if (b.score === -1) return -1;
         return a.score - b.score;
-      })
+      }),
     );
   };
   const getWordleGuessesByWordleId = async (req, res) => {
@@ -34,7 +34,7 @@ export default function WordleGuessesRoutes(app) {
         if (a.score === -1) return 1;
         if (b.score === -1) return -1;
         return a.score - b.score;
-      })
+      }),
     );
   };
   const getUserWordleGuessesByDate = async (req, res) => {
@@ -63,7 +63,7 @@ export default function WordleGuessesRoutes(app) {
     }
     const wordleGuess = await dao.createOrUpdateWordleGuess(
       req.body,
-      currentUser._id
+      currentUser._id,
     );
     res.json(wordleGuess);
   };
@@ -71,7 +71,7 @@ export default function WordleGuessesRoutes(app) {
     const currentUser = req.session["currentUser"];
     const wordle = await dao.createOrUpdateCustomWordleGuess(
       req.body,
-      currentUser._id
+      currentUser._id,
     );
     res.json(wordle);
   };
@@ -87,7 +87,7 @@ export default function WordleGuessesRoutes(app) {
   app.get("/api/wordle-guesses/user/date/:date", getUserWordleGuessesByDate);
   app.get(
     "/api/wordle-guesses/user/wordleId/:wordleId",
-    getUserWordleGuessesByWordleId
+    getUserWordleGuessesByWordleId,
   );
   app.patch("/api/wordle-guesses", createOrUpdateDailyWordleGuess);
   app.patch("/api/wordle-guesses/custom", createOrUpdateCustomWordleGuess);

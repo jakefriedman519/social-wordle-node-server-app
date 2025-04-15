@@ -71,6 +71,12 @@ export default function UserRoutes(app) {
     }
     res.json(currentUser);
   };
+
+  const getStats = async (req, res) => {
+    const { userId } = req.params;
+    const stats = await dao.findStatsForUser(userId);
+    res.json(stats);
+  };
   app.post("/api/users", createUser);
   app.get("/api/users", findAllUsers);
   app.get("/api/users/:userId", findUserById);
@@ -80,4 +86,5 @@ export default function UserRoutes(app) {
   app.post("/api/users/sign-in", signin);
   app.post("/api/users/sign-out", signout);
   app.post("/api/users/profile", profile);
+  app.get("/api/users/:userId/stats", getStats);
 }
