@@ -1,5 +1,5 @@
 import * as dao from "./dao.js";
-
+import * as tournamentsDao from "../Tournaments/dao.js";
 export default function UserRoutes(app) {
   const createUser = async (req, res) => {
     const user = await dao.createUser(req.body);
@@ -77,6 +77,14 @@ export default function UserRoutes(app) {
     const stats = await dao.findStatsForUser(userId);
     res.json(stats);
   };
+
+  const findTournamentsByUserId = async (req, res) => {
+    const tournaments = await tournamentsDao.findTournamentsByUserId(
+      req.params.userId,
+    );
+    res.json(tournaments);
+  };
+
   app.post("/api/users", createUser);
   app.get("/api/users", findAllUsers);
   app.get("/api/users/:userId", findUserById);
@@ -87,4 +95,5 @@ export default function UserRoutes(app) {
   app.post("/api/users/sign-out", signout);
   app.post("/api/users/profile", profile);
   app.get("/api/users/:userId/stats", getStats);
+  app.get("/api/users/:userId/tournaments", findTournamentsByUserId);
 }

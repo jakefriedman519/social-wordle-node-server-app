@@ -6,14 +6,14 @@ export async function findWordleGuesses(query) {
 
 export async function createOrUpdateWordleGuess(wordle, userId) {
   if (!wordle.completed) {
-    wordle.score = -1;
+    wordle.score = 0;
   } else {
-    wordle.score = wordle.guesses.length * 10 + wordle.timeSpent;
+    wordle.score = 60 - (wordle.guesses.length - 1) * 10;
   }
   return model.findOneAndUpdate(
     { userId, createdDate: wordle.createdDate },
     wordle,
-    { upsert: true, new: true }
+    { upsert: true, new: true },
   );
 }
 
