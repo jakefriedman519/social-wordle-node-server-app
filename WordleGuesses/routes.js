@@ -19,9 +19,7 @@ export default function WordleGuessesRoutes(app) {
     });
     res.json(
       wordleGuesses.sort((a, b) => {
-        if (a.score === -1) return 1;
-        if (b.score === -1) return -1;
-        return a.score - b.score;
+        return b.score - a.score;
       }),
     );
   };
@@ -31,9 +29,7 @@ export default function WordleGuessesRoutes(app) {
     });
     res.json(
       wordleGuesses.sort((a, b) => {
-        if (a.score === -1) return 1;
-        if (b.score === -1) return -1;
-        return a.score - b.score;
+        return b.score - a.score;
       }),
     );
   };
