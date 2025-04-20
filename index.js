@@ -9,6 +9,7 @@ import WordleRoutes from "./Wordles/routes.js";
 import WordleGuessesRoutes from "./WordleGuesses/routes.js";
 import TournamentRoutes from "./Tournaments/routes.js";
 import ExternalApiRoutes from "./ExternalApi/routes.js";
+import CommentsRoutes from "./Comments/routes.js";
 
 const CONNECTION_STRING =
   process.env.MONGO_CONNECTION_STRING ||
@@ -44,5 +45,6 @@ WordleRoutes(app);
 TournamentRoutes(app);
 WordleGuessesRoutes(app);
 ExternalApiRoutes(app);
+CommentsRoutes(app);
 
 app.listen(process.env.PORT || 4000);
