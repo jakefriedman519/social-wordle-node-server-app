@@ -11,6 +11,7 @@ const wordleSchema = new mongoose.Schema(
     }, // difficulty level of the wordle
     title: { type: String, required: true }, // title of the wordle
   },
-  { collection: "wordles" }
+  { collection: "wordles" },
 );
+
 export default wordleSchema;

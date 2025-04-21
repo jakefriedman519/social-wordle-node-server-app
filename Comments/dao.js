@@ -1,7 +1,7 @@
 import model from "./model.js";
-
+import { v4 as uuidv4 } from "uuid";
 export async function createComment(comment) {
-  const createdComment = await model.create(comment);
+  const createdComment = await model.create({ ...comment, _id: uuidv4() });
   return model
     .findOne({ _id: createdComment._id })
     .populate("userId", "username");

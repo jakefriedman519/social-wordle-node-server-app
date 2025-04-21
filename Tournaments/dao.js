@@ -1,8 +1,9 @@
 import model from "./model.js";
 import wordleGuessesModel from "../WordleGuesses/model.js";
 import userModel from "../Users/model.js";
+import { v4 as uuidv4 } from "uuid";
 export async function createTournament(tournament) {
-  return model.create(tournament);
+  return model.create({ ...tournament, _id: uuidv4() });
 }
 
 export function findTournamentById(tournamentId) {
