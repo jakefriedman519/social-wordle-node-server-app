@@ -1,0 +1,21 @@
+[{
+  "_id": "e7079b1c-66e7-4c66-93c9-dc73df360e30",
+  "name": "April Tournament",
+  "creator": "32e1c97a-9487-4ef6-9321-31167245244d",
+  "maxPlayers": 4,
+  "players": [
+    "32e1c97a-9487-4ef6-9321-31167245244d",
+    "2e03b3cd-7505-4801-bc53-9f790c249549"
+  ],
+  "startDate": {
+    "$date": "2025-04-20T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-04-23T00:00:00.000Z"
+  },
+  "isEnded": false,
+  "createdDate": {
+    "$date": "2025-04-21T02:13:47.393Z"
+  },
+  "__v": 0
+}]

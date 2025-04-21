@@ -42,9 +42,7 @@ export async function getLeaderboard(tournamentId) {
   const tournament = await model.findById(tournamentId).lean();
 
   const start = new Date(tournament.startDate);
-  start.setUTCHours(0, 0, 0, 0);
   const end = new Date(tournament.endDate);
-  end.setUTCHours(23, 59, 59, 999);
 
   // 1) get each player’s summed score
   const rawScores = await wordleGuessesModel.aggregate([
@@ -52,7 +50,7 @@ export async function getLeaderboard(tournamentId) {
       $match: {
         userId: { $in: tournament.players },
         wordleId: { $exists: false }, // all non‑custom wordles
-        finishedDate: { $gte: start, $lte: end },
+        createdDate: { $gte: start, $lte: end },
       },
     },
     {

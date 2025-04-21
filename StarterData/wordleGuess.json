@@ -1,0 +1,206 @@
+[{
+  "_id": {
+    "$oid": "6805a78e4d324742c9772de9"
+  },
+  "createdDate": {
+    "$date": "2025-04-20T00:00:00.000Z"
+  },
+  "userId": "2e03b3cd-7505-4801-bc53-9f790c249549",
+  "__v": 0,
+  "completed": true,
+  "guesses": [
+    "ARISE",
+    "BATCH",
+    "PATCH"
+  ],
+  "score": 40,
+  "timeSpent": 13,
+  "finishedDate": {
+    "$date": "2025-04-20T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805a7a04d324742c9772dea"
+  },
+  "createdDate": {
+    "$date": "2025-04-19T00:00:00.000Z"
+  },
+  "userId": "2e03b3cd-7505-4801-bc53-9f790c249549",
+  "__v": 0,
+  "completed": true,
+  "guesses": [
+    "ARISE",
+    "LIMIT",
+    "FILTH",
+    "NOICE",
+    "INBOX"
+  ],
+  "score": 20,
+  "timeSpent": 30,
+  "finishedDate": {
+    "$date": "2025-04-20T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805a7c34d324742c9772deb"
+  },
+  "userId": "2e03b3cd-7505-4801-bc53-9f790c249549",
+  "createdDate": {
+    "$date": "2025-04-18T00:00:00.000Z"
+  },
+  "__v": 0,
+  "completed": true,
+  "guesses": [
+    "ARISE",
+    "RIDGE",
+    "DIRGE"
+  ],
+  "score": 40,
+  "timeSpent": 10,
+  "finishedDate": {
+    "$date": "2025-04-20T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805a7cc4d324742c9772dec"
+  },
+  "createdDate": {
+    "$date": "2025-04-17T00:00:00.000Z"
+  },
+  "userId": "2e03b3cd-7505-4801-bc53-9f790c249549",
+  "__v": 0,
+  "completed": false,
+  "guesses": [
+    "ARISE",
+    "SHUNT",
+    "STOLL",
+    "STOCK",
+    "STOGY",
+    "STOOM"
+  ],
+  "score": 0,
+  "timeSpent": 38
+},
+{
+  "_id": {
+    "$oid": "6805a93c4d324742c9772ded"
+  },
+  "createdDate": {
+    "$date": "2025-04-20T00:00:00.000Z"
+  },
+  "userId": "32e1c97a-9487-4ef6-9321-31167245244d",
+  "__v": 0,
+  "completed": true,
+  "finishedDate": {
+    "$date": "2025-04-20T00:00:00.000Z"
+  },
+  "guesses": [
+    "PATCH"
+  ],
+  "score": 60,
+  "timeSpent": 1
+},
+{
+  "_id": {
+    "$oid": "6805a93f4d324742c9772dee"
+  },
+  "createdDate": {
+    "$date": "2025-04-19T00:00:00.000Z"
+  },
+  "userId": "32e1c97a-9487-4ef6-9321-31167245244d",
+  "__v": 0,
+  "completed": true,
+  "finishedDate": {
+    "$date": "2025-04-20T00:00:00.000Z"
+  },
+  "guesses": [
+    "INBOX"
+  ],
+  "score": 60,
+  "timeSpent": 1
+},
+{
+  "_id": {
+    "$oid": "6805a9524d324742c9772def"
+  },
+  "createdDate": {
+    "$date": "2025-04-18T00:00:00.000Z"
+  },
+  "userId": "32e1c97a-9487-4ef6-9321-31167245244d",
+  "__v": 0,
+  "completed": true,
+  "finishedDate": {
+    "$date": "2025-04-20T00:00:00.000Z"
+  },
+  "guesses": [
+    "DIRGE"
+  ],
+  "score": 60,
+  "timeSpent": 3
+},
+{
+  "_id": {
+    "$oid": "6805abaa4d324742c9772df0"
+  },
+  "userId": "32e1c97a-9487-4ef6-9321-31167245244d",
+  "wordleId": "6805aba28e9233d4254193d4",
+  "__v": 0,
+  "completed": true,
+  "guesses": [
+    "STYLE",
+    "REACT"
+  ],
+  "score": 50,
+  "timeSpent": 16
+},
+{
+  "_id": {
+    "$oid": "6805abd24d324742c9772df1"
+  },
+  "userId": "32e1c97a-9487-4ef6-9321-31167245244d",
+  "wordleId": "6805abc58e9233d4254193e8",
+  "__v": 0,
+  "completed": true,
+  "guesses": [
+    "ECMASCRIPT",
+    "JAVASCRIPT"
+  ],
+  "score": 50,
+  "timeSpent": 17
+},
+{
+  "_id": {
+    "$oid": "6805ac3d4d324742c9772df3"
+  },
+  "wordleId": "6805abc58e9233d4254193e8",
+  "userId": "2e03b3cd-7505-4801-bc53-9f790c249549",
+  "__v": 0,
+  "completed": true,
+  "guesses": [
+    "JAVASCRIPT"
+  ],
+  "score": 60,
+  "timeSpent": 3
+},
+{
+  "_id": {
+    "$oid": "6805ad004d324742c9772df4"
+  },
+  "userId": "2e03b3cd-7505-4801-bc53-9f790c249549",
+  "wordleId": "6805aba28e9233d4254193d4",
+  "__v": 0,
+  "completed": false,
+  "guesses": [
+    "ARISE",
+    "PLACE",
+    "REACH",
+    "REACH",
+    "REACH",
+    "REACH"
+  ],
+  "score": 0,
+  "timeSpent": 15
+}]

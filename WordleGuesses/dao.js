@@ -1,5 +1,4 @@
 import model from "./model.js";
-
 export async function findWordleGuesses(query) {
   return model.find(query).populate("userId", "username");
 }

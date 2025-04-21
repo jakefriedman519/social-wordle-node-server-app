@@ -1,0 +1,25 @@
+[{
+  "_id": "2e03b3cd-7505-4801-bc53-9f790c249549",
+  "username": "regular_user",
+  "password": "123",
+  "role": "USER",
+  "__v": 0,
+  "dob": {
+    "$date": "2010-01-20T00:00:00.000Z"
+  },
+  "email": "someuser123@email.com",
+  "firstName": "Regular",
+  "lastName": "User"
+},
+{
+  "_id": "32e1c97a-9487-4ef6-9321-31167245244d",
+  "username": "admin",
+  "password": "password",
+  "role": "ADMIN",
+  "__v": 0,
+  "dob": {
+    "$date": "2003-05-19T00:00:00.000Z"
+  },
+  "email": "friedman.ja@northeastern.edu",
+  "firstName": "Jake"
+}]

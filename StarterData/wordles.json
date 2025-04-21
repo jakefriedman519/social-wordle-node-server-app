@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "6805aba28e9233d4254193d4"
+  },
+  "userId": "32e1c97a-9487-4ef6-9321-31167245244d",
+  "wordleWord": "REACT",
+  "difficulty": "EASY",
+  "title": "Web Dev",
+  "createdDate": {
+    "$date": "2025-04-21T02:21:22.376Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6805abc58e9233d4254193e8"
+  },
+  "userId": "32e1c97a-9487-4ef6-9321-31167245244d",
+  "wordleWord": "JAVASCRIPT",
+  "difficulty": "MEDIUM",
+  "title": "Web Dev 2",
+  "createdDate": {
+    "$date": "2025-04-21T02:21:57.442Z"
+  },
+  "__v": 0
+}]
