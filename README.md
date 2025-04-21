@@ -13,7 +13,8 @@ To run the server, use the following steps:
   SESSION_SECRET=super secret session phrase
 ```
 3. Make sure MongoDB is running locally
-4. Run `npm run dev` to start the server in development mode (requires `nodemon` to be installed)
+4. Import the data from the `StarterData` directory into their respective MongoDB collections. The database should be named `social-wordle-app`, and the five collections are `users`, `tournaments`, `wordleGuess`, `wordles`, and `comments`.
+6. Run `npm run dev` to start the server in development mode (requires `nodemon` to be installed)
 
 ### Entity Relationships
 The entity relationship diagram can be found in the [Wiki pages](https://github.com/jakefriedman519/social-wordle-node-server-app/wiki/Entity-Relationship-Diagram).
