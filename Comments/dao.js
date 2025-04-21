@@ -14,3 +14,7 @@ export async function findCommentsByWordleDay(wordleDay) {
 export async function findCommentsByUserId(userId) {
   return model.find({ userId }).populate("userId", "username");
 }
+
+export async function deleteCommentById(id) {
+  return model.findOneAndDelete({ _id: id });
+}

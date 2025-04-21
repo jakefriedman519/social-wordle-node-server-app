@@ -23,7 +23,14 @@ export default function CommentsRoutes(app) {
     res.json(comments);
   };
 
+  const deleteCommentById = async (req, res) => {
+    const { id } = req.params;
+    await dao.deleteCommentById(id);
+    res.status(200).json({});
+  };
+
   app.get("/api/comments/user/:userId", getCommentsByUser);
   app.get("/api/comments/day/:day", getCommentsByDay);
   app.post("/api/comments", createComment);
+  app.delete("/api/comments/:id", deleteCommentById);
 }
